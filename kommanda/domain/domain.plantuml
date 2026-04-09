@@ -2,14 +2,14 @@
 
 class Usuario {
     - rol: RolEnum
-    + agregarPlato(m: Menu, p: Plato): void
-    + modificarPlato(p: Plato): Plato
-    + marcarDisponible(p: Plato): Plato
-    + marcarNoDisponible(p: Plato): Plato
+    + agregarPlato(p: Plato, m: Menu): Menu
+    + agregarPlato( p: Plato, m: Menu): Menu
+    + editarPlato(p: Plato): Plato
+    + cambiarDisponibilidad(estado: Boolean, p: Plato): Plato
     + crearComanda(platos: List<Plato>): Comanda
-    + agregarPlato(p: Plato, c: Comanda): Comanda
-    + removerPlato(p: Plato, c: Comanda): Comanda
-    + editarPlato(seleccionado: Plato, nuevo: Plato, c: Comanda): Comanda
+    + agregarPlatos(p: List<Plato>, c: Comanda): Comanda
+    + removerPlatos(p: List<Plato>, c: Comanda): Comanda
+    + modificarPlatoDePedido(seleccionado: Plato, nuevo: Plato, c: Comanda): Comanda
     + marcarEntregado(c: Comanda): Comanda
 }
 
@@ -34,6 +34,10 @@ class Plato {
     - precio: Number
     - descripcion: String
     - disponibilidad: Boolean
+}
+
+class Menu {
+    - platosDisponibles: List<Plato>
 }
 
 enum EstadoComandaEnum {

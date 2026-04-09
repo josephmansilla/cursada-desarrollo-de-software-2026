@@ -1,0 +1,69 @@
+@startuml kommanda
+
+class Usuario {
+    - rol: RolEnum
+    + agregarPlato(m: Menu, p: Plato): void
+    + modificarPlato(p: Plato): Plato
+    + marcarDisponible(p: Plato): Plato
+    + marcarNoDisponible(p: Plato): Plato
+    + crearComanda(platos: List<Plato>): Comanda
+    + agregarPlato(p: Plato, c: Comanda): Comanda
+    + removerPlato(p: Plato, c: Comanda): Comanda
+    + editarPlato(seleccionado: Plato, nuevo: Plato, c: Comanda): Comanda
+    + marcarEntregado(c: Comanda): Comanda
+}
+
+class Comanda {
+    - estado: EstadoComandaEnum
+    - bebidasListas: Boolean
+    - platos: List<Plato>
+    + cambiarEstado(enum: EstadoComandaEnum): void
+    + agregarPlato(p: Plato): List<Plato)>
+    + removerPlato(p: Plato): List<Plato)>
+    + totalPedido(): Number
+}
+
+class Resto {
+    - comandas: List<Comanda>
+    + pedidosPendientes(): List<Comanda>
+}
+
+class Plato {
+    - nombre: String
+    - categoria: CategoriaEnum
+    - precio: Number
+    - descripcion: String
+    - disponibilidad: Boolean
+}
+
+enum EstadoComandaEnum {
+    - INGRESADO
+    - ENTRADAS_LISTAS
+    - PRINCIPALES_LISTOS
+    - POSTRES_LISTOS
+    - ENTREGADO
+    - PAGADO
+}
+enum RolEnum {
+    - ADMINISTRADOR
+    - ENCARGADO
+    - MOZO
+}
+enum CategoriaEnum {
+    - Entrada
+    - Principal
+    - Postre
+    - Bebida
+}
+
+
+Usuario -> RolEnum
+Usuario -.> Comanda
+Usuario -.> Plato
+Plato -> CategoriaEnum
+Comanda --> EstadoComandaEnum
+Comanda -> Plato: *
+Resto --> Comanda: *
+Resto ..> Comanda
+
+@enduml

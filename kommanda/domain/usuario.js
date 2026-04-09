@@ -30,8 +30,7 @@ class Usuario {
     }
 
     modificarPlatoDePedido(seleccionado, nuevo, comanda) {
-        let COMANDA_NUEVO = comanda.removerPlatos([seleccionado]).agregarPlatos([nuevo]);
-        return structuredClone(COMANDA_NUEVO);
+        return structuredClone(comanda.removerPlatos([seleccionado]).agregarPlatos([nuevo]));
     }
 
     crearComanda(platos) {

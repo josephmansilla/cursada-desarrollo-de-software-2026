@@ -12,13 +12,11 @@ class Comanda {
     }
 
     agregarPlatos(platos) {
-        let PLATOS_NUEVOS = this.platos.concat(platos);
-        return PLATOS_NUEVOS;
+        return this.platos.concat(platos);
     }
 
-    removerPlatos(platos) {
-        let PLATOS_NUEVOS = this.platos.filter(e => !platos.includes(e));
-        return PLATOS_NUEVOS;
+    removerPlatos(platos) { 
+        return this.platos.filter(e => !platos.includes(e));
     }
     // NO ES NECESARIO HACER ESTAS FUNCIONES, PERO PARA NO REPETIR TANTA LÓGICA DE CÓDIGO LO AGREGO AL SER QUE LO PIDE EL DOMINIO
     totalPedido() {

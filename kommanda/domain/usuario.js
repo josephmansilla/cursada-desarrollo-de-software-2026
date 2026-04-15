@@ -6,13 +6,6 @@ class Usuario {
         this.rol = rol; 
     }
     
-    agregarPlatoMenu(plato) {
-        menu.platosDisponibles.push(plato);
-    }
-    removerPlatoMenu(plato) {
-        menu.platosDisponibles.filter(e => !e === plato);
-    }
-
     agregarPlatos(platos, comanda) {
         return structuredClone(comanda.agregarPlatos(platos));
     }

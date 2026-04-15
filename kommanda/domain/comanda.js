@@ -5,23 +5,23 @@ class Comanda {
         }
         this.estado = estado; 
         this.bebidasListas = bebidasListas; 
-        this.platos = []; // hay alguna forma de verificar tipos y que no explote? que asco js
+        this.pedidos = []; // hay alguna forma de verificar tipos y que no explote? que asco js
     }
     cambiarEstado(estado) {
         this.estado = estado; // se debería verificar tipos?? no sé como es js
     }
 
-    agregarPlatos(platos) {
-        return this.platos.concat(platos);
+    agregarPedidos(pedidos) {
+        return this.pedidos.concat(pedidos);
     }
 
-    removerPlatos(platos) { 
-        return this.platos.filter(e => !platos.includes(e));
+    removerPedidos(pedidos) { 
+        return this.pedidos.filter(e => !pedidos.includes(e));
     }
     // NO ES NECESARIO HACER ESTAS FUNCIONES, PERO PARA NO REPETIR TANTA LÓGICA DE CÓDIGO LO AGREGO AL SER QUE LO PIDE EL DOMINIO
     totalPedido() {
         let TOTAL = 0;
-        this.platos.forEach(e => e.precio + TOTAL);
+        this.pedidos.forEach(e => e.precio + TOTAL);
         return TOTAL;
     }
 }

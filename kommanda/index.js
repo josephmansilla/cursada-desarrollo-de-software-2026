@@ -8,7 +8,7 @@ Def body: {atributos de un plato}
 Response: 201
 Response body: { return object }
 */
-app.get("/platos/id",  (req, res) => {
+app.get("/platos/:id",  (req, res) => {
     controller.verPlato(req,res);
 }) 
 /*

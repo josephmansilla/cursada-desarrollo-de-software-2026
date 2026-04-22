@@ -18,28 +18,30 @@ export const controller = {
         try {
             res.status(200).json(menu.listar())
         } catch(error) {
-
+            if(error instanceof PlatoInvalido) {
+                res.status(400).json({error: error.message}); 
+            }
         }
     },
     verPlato(req, res) {
         try {
-
+            const platoId = parseInt(req.params.id)
+            menu.buscarPlato(platoId);
         } catch(error) {
-
+            if(error instanceof PlatoInvalido) {
+                res.status(420).json({error: error.message}); 
+            }
         }
-    },
+        },
     modificarPlato(req,res) {
         try {
-
+        const platoId = parseInt(req.params.id);
+            menu.modificarPlato();
+            return res.status(400);
         } catch(error) {
-
-        }
-    },
-    modificarDisponibilidad(req, res) {
-        try {
-
-        } catch(error) {
-
+            if (error instanceof PlatoInvalido) {
+                res.status(420).json({error: error.message}); 
+            }
         }
     }
-}
+    }
